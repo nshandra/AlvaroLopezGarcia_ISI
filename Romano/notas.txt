@@ -1,0 +1,6 @@
+Solo hay una función que te devuelve el número en base 10 o una excepción.
+
+El parámetro es un string.
+La partición sería si es romano o no. Dentro de si es romano tenemos que observar si es I,V,X,L,C,D,M.
+
+
