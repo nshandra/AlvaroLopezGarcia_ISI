@@ -1,0 +1,6 @@
+Solo hay una funcion que devuelve true si el año es bisiesto y false en caso contrario.
+Los parametros son int positivos, int negativos y el cero.
+Las particiones realizadas son b1= int positivos, b2= int negativos y b3= cero.
+Dentro de b1 y b2 existen dos particiones mas los
+
+ 
