@@ -9,6 +9,9 @@ public class RomanNumeral
    	char letra = ' ';
    	int cont = 0;
 
+		if (s = null){
+			throw new NullPointerException("RomanNumeral.convierte");
+		}
 		for(int i = 0; i < s.length(); i++){//RECORRER TODA LA FRASE(numero romano)
 
 			letra = s.charAt(i);
@@ -24,10 +27,10 @@ public class RomanNumeral
 					}else {//si no se cumple lo anterior  
 						
 						if (cont = 4 && ((letra == Rom[1]) || (letra == Rom[3]) || (letra == Rom[5]))){
-							throw newCharRepeatException("RomanNumeral.convierte");
+							throw new CharRepeatException("RomanNumeral.convierte");
 						}
 						if (cont = 2 && ((letra == Rom[2]) || (letra == Rom[4]) || (letra == Rom[6]))){
-							throw newCharRepeatException("RomanNumeral.convierte");
+							throw new CharRepeatException("RomanNumeral.convierte");
 						}
 						
 						ant = valor[j];//el dato actual se guarda en anterior
