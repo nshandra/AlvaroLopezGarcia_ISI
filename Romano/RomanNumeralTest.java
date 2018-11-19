@@ -44,7 +44,7 @@ public class RomanNumeralTest
       RomanNumeral.convierte (word);
    }
    
-   @Test (expected = ClassCastException.class)
+   @Test (expected = CharRepeatException.class)
    @SuppressWarnings ("unchecked")
    public void testcuatroI()
    {
@@ -52,7 +52,7 @@ public class RomanNumeralTest
       RomanNumeral.convierte (word);
    }
    
-      @Test (expected = ClassCastException.class)
+   @Test (expected = CharRepeatException.class)
    @SuppressWarnings ("unchecked")
    public void testcuatroC()
    {
@@ -60,7 +60,7 @@ public class RomanNumeralTest
       RomanNumeral.convierte (word);
    }
    
-   @Test (expected = ClassCastException.class)
+   @Test (expected = CharRepeatException.class)
    @SuppressWarnings ("unchecked")
    public void testcuatroX()
    {
@@ -68,7 +68,7 @@ public class RomanNumeralTest
       RomanNumeral.convierte (word);
    }
    
-   @Test (expected = ClassCastException.class)
+   @Test (expected = CharRepeatException.class)
    @SuppressWarnings ("unchecked")
    public void testdosL()
    {
@@ -76,7 +76,7 @@ public class RomanNumeralTest
       RomanNumeral.convierte (word);
    }
    
-   @Test (expected = ClassCastException.class)
+   @Test (expected = CharRepeatException.class)
    @SuppressWarnings ("unchecked")
    public void testdosV()
    {
@@ -84,7 +84,7 @@ public class RomanNumeralTest
       RomanNumeral.convierte (word);
    }
    
-   @Test (expected = ClassCastException.class)
+   @Test (expected = CharRepeatException.class)
    @SuppressWarnings ("unchecked")
    public void testdosD()
    {
