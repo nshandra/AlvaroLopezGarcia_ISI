@@ -5,11 +5,11 @@ public class RomanNumeral
 		char Rom[]= {' ','I','V','X','L','C','D','M'};
 		int valor[] = {0,1,5,10,50,100,500,1000};//SE LE DA VALOR A LA LETRAS
 		int ant = 0;
-   	int resultado = 0;
-   	char letra = ' ';
-   	int cont = 0;
+   		int resultado = 0;
+   		char letra = ' ';
+   		int cont = 0;
 
-		if (s = null){
+		if (s == null){
 			throw new NullPointerException("RomanNumeral.convierte");
 		}
 		for(int i = 0; i < s.length(); i++){//RECORRER TODA LA FRASE(numero romano)
@@ -26,11 +26,11 @@ public class RomanNumeral
 						ant = valor[j]; // valor anterior = valor letra actual
 					}else {//si no se cumple lo anterior  
 						
-						if (cont = 4 && ((letra == Rom[1]) || (letra == Rom[3]) || (letra == Rom[5]))){
-							throw new CharRepeatException("RomanNumeral.convierte");
+						if (cont == 4 && ((letra == Rom[1]) || (letra == Rom[3]) || (letra == Rom[5]))){
+							throw new ClassCastException("RomanNumeral.convierte");
 						}
-						if (cont = 2 && ((letra == Rom[2]) || (letra == Rom[4]) || (letra == Rom[6]))){
-							throw new CharRepeatException("RomanNumeral.convierte");
+						if (cont == 2 && ((letra == Rom[2]) || (letra == Rom[4]) || (letra == Rom[6]))){
+							throw new ClassCastException("RomanNumeral.convierte");
 						}
 						
 						ant = valor[j];//el dato actual se guarda en anterior
@@ -40,5 +40,7 @@ public class RomanNumeral
 				}
 			}
 		}
+		return resultado;
 	}
 }
+
