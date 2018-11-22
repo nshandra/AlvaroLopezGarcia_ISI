@@ -1,4 +1,0 @@
-El parámetro de entrada es el precio original (double).
-Son tipos time, se distinguen dos posibles agrupaciones, b1 fechas-blackfriday y b2 fechas-noblackfriday.
-El valor devuelto es el precio normal si no es black-friday y con el descuento si lo es.
-
