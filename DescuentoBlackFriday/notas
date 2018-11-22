@@ -1,0 +1,5 @@
+- El parametro de entrada es el precioOriginal.
+Son tipos float.
+Las particiones son numeros negativos, positivos (b1,b2).
+Dentro de ellas comprobamos si es  23 de noviembre o no, es decir,
+entre aplicar el 30% de descuento o no.
