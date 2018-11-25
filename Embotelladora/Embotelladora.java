@@ -1,13 +1,13 @@
 public class Embotelladora
 {
-	public int calcBotellasPequenyas(int pequenyas,int grandes,int total)
+	public int calculaBotellasPequenas(int pequenyas,int grandes,int total)
 	{
 		int modulo;
 		int max_grandes;
 		int max_pequenyas;
 
 		if (pequenyas < 0 || grandes < 0 || total < 0){
-			throw new ClassCastException("Embotelladora.calcBotellasPequenyas");
+			throw new ClassCastException("Embotelladora.calculaBotellasPequenas");
 		}
 		if(pequenyas == 0 || total == 0){
 			return 0;

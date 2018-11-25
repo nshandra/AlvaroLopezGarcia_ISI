@@ -1,67 +1,158 @@
-import static org.junit.Assert.*;
 import org.junit.*;
+import static org.junit.Assert.*;
 import java.util.*;
 
-public class EmbotelladoraTest
-{
+public class EmbotelladoraTest {
 
-	private Embotelladora litros;
+	int pequenas, grandes, total, expected;
+	Embotelladora emb = new Embotelladora(); 
 
- 	@Before      // Set up - Called before every test method.
-    public void setUp()
-    {
-	  litros = new Embotelladora();
-	}	
-
-	@Test public void testtotalCero()
-	{
-		assertTrue("El total es 0", 0 == litros.calcBotellasPequenyas(3,5,0));
+	@Test
+	public void testAllZero() {
+		pequenas = 0;
+		grandes = 0;
+		total = 0;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test All Zero", 
+					expected == returned);
 	}
-
-	@Test (expected = ClassCastException.class)
-    @SuppressWarnings ("unchecked")
-	public void testtotalnegativo()
-	{
-		litros.calcBotellasPequenyas(4,5,-1);
+	
+	@Test
+	public void testGrandesZero() {
+		pequenas = 1;
+		grandes = 0;
+		total = 1;
+		expected = 1;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Grandes Zero", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
-	@Test public void testgrandescero()
-	{
-		assertTrue("El total es 6", 6 == litros.calcBotellasPequenyas(7,0,6));
+	
+	@Test
+	public void testPequenasZero() {
+		pequenas = 0;
+		grandes = 1;
+		total = 1;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Pequenas Zero", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
-	@Test public void testpequenyascero()
-	{
-		assertTrue("El total es 0", 0 == litros.calcBotellasPequenyas(0,6,7));
+	
+	@Test
+	public void testTotalZero() {
+		pequenas = 1;
+		grandes = 1;
+		total = 0;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Total Zero", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
-	@Test (expected = ClassCastException.class)
-    @SuppressWarnings ("unchecked")
-	public void testgrandesnegativo()
-	{
-		litros.calcBotellasPequenyas(5,-4,5);
+	
+	@Test
+	public void testAllPositive() {
+		pequenas = 1;
+		grandes = 1;
+		total = 1;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test All Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
-	@Test (expected = ClassCastException.class)
-    @SuppressWarnings ("unchecked")
-	public void testpequenyasnegativo()
-	{
-		litros.calcBotellasPequenyas(-5,4,5);
+	
+	@Test
+	public void testGrandesPositive() {
+		pequenas = 0;
+		grandes = 1;
+		total = 1;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Grandes Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
-	@Test public void testfaltaespacio()
-	{
-		assertTrue("El total es 5", 5 == litros.calcBotellasPequenyas(5,1,17));
+	
+	@Test
+	public void testPequenasPositive() {
+		pequenas = 1;
+		grandes = 0;
+		total = 1;
+		expected = 1;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Pequenas Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
-	@Test public void testlimiteinferior()
-	{
-		assertTrue("El total es 4", 4 == litros.calcBotellasPequenyas(5,2,9));
+	
+	@Test
+	public void testTotalPositive() {
+		pequenas = 0;
+		grandes = 0;
+		total = 1;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Total Positive", 
+					expected == returned);
 	}
-
-	@Test public void testlimitesuperior()
-	{
-		assertTrue("El total es 1", 1 == litros.calcBotellasPequenyas(5,2,11));
+	
+//	C7: total > grandes x 5
+	@Test
+	public void testTotalGreaterGrandes() {
+		pequenas = 0;
+		grandes = 1;
+		total = 6;
+		expected = -1;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Total Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-
+	
+//	C8: total = grandes x 5
+	@Test
+	public void testTotalEqualsGrandes() {
+		pequenas = 0;
+		grandes = 1;
+		total = 5;
+		expected = 0;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Total Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
+	}
+	
+//	C9: pequeñas > total
+	@Test
+	public void testPequenasGreaterTotal() {
+		pequenas = 6;
+		grandes = 0;
+		total = 5;
+		expected = 5;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Total Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
+	}
+	
+//	C10: pequeñas = total
+	@Test
+	public void testPequenasEqualsTotal() {
+		pequenas = 5;
+		grandes = 0;
+		total = 5;
+		expected = 5;
+		int returned = emb.calculaBotellasPequenas(pequenas, grandes, total);
+		System.out.println("returned: " + returned);
+		assertTrue ("Test Total Positive", 
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
+	}
+	
 }
