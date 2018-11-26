@@ -1,0 +1,2 @@
+Lanzamos distintos tipos de excepcion para gestionar el caso de precio negativo.
+Solución: cambiar el tipo de excepcion en mi test o en su codigo. 
