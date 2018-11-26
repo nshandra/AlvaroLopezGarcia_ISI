@@ -2,45 +2,36 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 
-public class DescuentoBlackFridayTest
-{
+public class DescuentoBlackFridayTest {
 
-	private DescuentoBlackFriday precio;
+	private double price;
+	private Date date = new Date();
+	private LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+	DescuentoBlackFriday dbf = new DescuentoBlackFriday();
 
- 	@Before      // Set up - Called before every test method.
-    public void setUp()
-    {
-	  precio = new DescuentoBlackFriday();//Hay que hacer un constructor con una fecha que sea por ejemplo la fecha actual
+	//Test 1
+	@Test
+	public void testCheckPrice(){
+		price = 30.0;
+
+		int month = localDate.getMonthValue();
+		int day   = localDate.getDayOfMonth();
+		double discount = price * (30.0/100.0);
+		if((month == 11) && (day == 23)){
+				assertTrue("Es Black Friday, fallo", discount == dbf.PrecioFinal(price));
+		}else{
+				assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price));
+		}
+
 	}
 
+	//Test 2
+	@Test (expected = IllegalArgumentException.class)
+	public void testNonPositivePrice(){
+		price = -59.99;
+		dbf.PrecioFinal(price);
 
-	@Test (expected = ClassCastException.class)
-    @SuppressWarnings ("unchecked")
-	public void testprecionegativo()
-	{
-		precio.PrecioFinal(-5.0);
 	}
-
-	@Test public void testlimitesuperior()
-	{
-		double valor = 15.2;
-		precio.fecha = LocalDate.parse("1914-24-11",precio.f);
-		assertTrue("El total es 15.2", valor == precio.PrecioFinal(valor));
-	}
-
-	@Test public void testlimiteinferior()
-	{
-		double valor = 15.2;
-		precio.fecha = LocalDate.parse("1914-22-11",precio.f);
-		assertTrue("El total es 15.2", valor == precio.PrecioFinal(valor));
-	}
-
-	@Test public void testcorrectofunc()
-	{
-		double valor = 15.2;
-		precio.fecha = LocalDate.parse("1954-23-11",precio.f);
-		assertTrue("El total es 15.2", 0.7*valor == precio.PrecioFinal(valor));
-	}
-}		
+}
