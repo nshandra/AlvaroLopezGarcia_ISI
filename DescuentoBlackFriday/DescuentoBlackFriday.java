@@ -17,7 +17,9 @@ public class DescuentoBlackFriday
 		double precio;
 
 		if(precioOriginal < 0.00){
-			throw new ClassCastException("DescuentoBlackFriday.PrecioFinal");
+			//throw new ClassCastException("DescuentoBlackFriday.PrecioFinal");
+			//---> Cambio el tipo de excepción
+			throw new IllegalArgumentException("DescuentoBlackFriday.PrecioFinal");
 		}	
 		if(fecha.getMonthValue() == 11 && this.fecha.getDayOfMonth()==23){
 			precio = precioOriginal*0.7;
