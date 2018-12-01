@@ -1,0 +1,17 @@
+La version original de DescuentoBlackFriday: https://github.com/nshandra/AlvaroLopezGarcia_ISI/blob/master/DescuentoBlackFriday/DescuentoBlackFriday-orig.java
+
+Fallos:
+-Lanzamos distintos tipos de excepcion para gestionar el caso de precio negativo (aunque no es un fallo en sí).
+Lo he encontrado con el test:
+	//Test 2
+	@Test (expected = IllegalArgumentException.class)
+	public void testNonPositivePrice(){
+		price = -59.99;
+		dbf.PrecioFinal(price);
+
+	}
+Solución: cambiar el tipo de excepcion en mi test o en su codigo. Lo he hecho en su código.
+
+La version nueva de DesuentoBlackFriday: https://github.com/nshandra/AlvaroLopezGarcia_ISI/blob/master/DescuentoBlackFriday/DescuentoBlackFriday.java
+
+
