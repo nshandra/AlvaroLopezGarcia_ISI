@@ -1,0 +1,15 @@
+La versión original de bisiestos: https://github.com/nshandra/AlvaroLopezGarcia_ISI/blob/master/Bisiesto/Bisiesto-orig.java
+
+Fallos:
+- El nombre del método es EsBisiesto, lo cambio a esBisiesto para pasar mis tests.
+- En su código se considera que bisiestos empieza a partir del año 0, no lanzan excepcion para números negativos.
+Lo he encontrado con el test:
+	//Test 2
+	@Test (expected = IllegalArgumentException.class)
+	public void testNegativeYear() {
+		year = -2000;
+		bis.esBisiesto(year);
+	}
+Solución: añadir la gestion de los números negativos.
+
+La version arreglada de bisiestos: https://github.com/nshandra/AlvaroLopezGarcia_ISI/blob/master/Bisiesto/Bisiestos.java

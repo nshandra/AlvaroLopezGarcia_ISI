@@ -1,4 +1,0 @@
-El nombre del método es EsBisiesto, lo cambio a esBisiesto para pasar mis tests.
-En su código se considera que bisiestos empieza a partir del año 0, no lanzan excepcion para números negativos.
-
-Solución: añadir la gestion de los números negativos.
