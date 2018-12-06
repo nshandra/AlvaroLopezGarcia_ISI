@@ -1,0 +1,23 @@
+Bisiestos:
+Pasa los test, pero los nombres no se ajustan al enunciado.
+
+Embotelladora:
+Error en el nombre del metodo. (En version antigua)
+el argumento pequenas se llama pequenyas. Se ha modificado la excepcion por return -1 para que sea posible realizar data driven test. He intentado mantener la estructura del codigo original.
+
+linea 13 a 15: si 'pequenas' es == 0, return 0, aunque no se tengan botellas grandes suficientes.  
+
+linea 17 a 20: return 0 si es multiplo de 5, sin tener en cuenta el valor de 'grandes'.
+
+linea 22 a 25: al dividir total por 5 no se tiene en cuenta si el resto es cubierto por grandes.
+
+linea 27 a 31: max_pequenas es a efectos practicos mod(total,5). Si el resto es mayor que pequenas se devuelve el valor de pequeñas en vez de indicar que no se puede embotellar el total.
+
+Versión original:
+https://github.com/nshandra/AlvaroLopezGarcia_ISI/blob/master/Embotelladora/Embotelladora-orig.java
+
+Versión corregida:
+https://github.com/nshandra/AlvaroLopezGarcia_ISI/blob/master/Embotelladora/Embotelladora.java
+
+DescuentoBlackFriday:
+Sin nuevos fallos.
