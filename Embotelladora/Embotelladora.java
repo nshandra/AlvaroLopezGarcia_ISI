@@ -1,29 +1,33 @@
 public class Embotelladora
 {
-	public int calculaBotellasPequenas(int pequenyas,int grandes,int total)
+	public int calculaBotellasPequenas(int pequenas,int grandes,int total)
 	{
 		int modulo;
 		int max_grandes;
-		int max_pequenyas;
+		int max_pequenas;
 
-		if (pequenyas < 0 || grandes < 0 || total < 0){
-			throw new ClassCastException("Embotelladora.calculaBotellasPequenas");
+		if (pequenas < 0 || grandes < 0 || total < 0){
+			return -1; // throw new ClassCastException("Embotelladora.calculaBotellasPequenas");
 		}
-		if(pequenyas == 0 || total == 0){
+
+		if(total == 0){
 			return 0;
 		}
-		modulo = total%5;
-		if(modulo == 0){
-			return 0;
+
+		// modulo = total%5;
+		// if(modulo == 0){
+		// 	return 0;
+		// }
+
+		max_grandes = grandes*5;
+		if((total-max_grandes) < 0){
+			max_grandes = total;
 		}
-		max_grandes = total/5;
-		if((grandes-max_grandes) < 0){
-			max_grandes = grandes;
+
+		max_pequenas = total - max_grandes;
+		if((pequenas-max_pequenas) < 0){
+			max_pequenas = -1;
 		}
-		max_pequenyas = total - 5*max_grandes;
-		if((pequenyas-max_pequenyas) < 0){
-			max_pequenyas = pequenyas;
-		}
-		return max_pequenyas;
+		return max_pequenas;
 	}
 }

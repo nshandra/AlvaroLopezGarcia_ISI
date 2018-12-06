@@ -1,7 +1,0 @@
-- Los parámetros de entrada son el número de botellas de 1L,
-el número de botellas de 5L y el total de litros que hay que embotellar.
-Todos ellos del tipo de dato int.
-- Las particiones realizadas serán las siguientes: b1, b2 y b3, botellas pequeñas,
-botellas grandes y total de litros, respectivamente.
-Dentro de cada una de ellas (menos en b3) serán valores positivos, negativos y cero (c1,c2 y c3).
-Dentro de c1 y c2 múltiplos de 5 y no multiplos de 5
